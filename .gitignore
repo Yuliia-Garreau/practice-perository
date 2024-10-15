@@ -1,4 +1,111 @@
+3 module
+
+Третій модуль перевалив за екватор і можемо виділити собі найважливіші моменти і зробити собі шпаргалку
+Шпаргалка по методам масивів:
+split/join -- перетворює рядок на масив і назад.
+push () -- додає елементи до кінця,
+pop() -- видаляє елемент з кінця,
+shift() -- видаляє елемент із початку,
+unshift() - додає елементи на початок.
+splice(index, deleteIndex, ...arr) -- починаючи з індексу index, видаляє deleteIndex елементів і вставляє arr.
+slice(start, end) -- створює новий масив, копіюючи елементи з позиції start до end (не включаючи end).
+Функція повинна робити лише те, що очевидно мається на увазі її назвою. І це має бути однією дією. Якщо коротко і зрозуміло: Одна функція -- одна дія.
+Якщо функція має повернути бульове значення, не обов’язково повертати з функції true чи false. Скоріш за все ви можете повернути з функції безпосередньо саму умову з if. Наприклад, замість:
+function isAdult(age) {
+  if (age >= 18) {
+    return true;
+  } else {
+    return false;
+  }
+}
+краще написати:
+function isAdult(age) {
+  return age >= 18;
+}
+Шпаргалка з оголошення функцій у JS:
+Функціональний вираз (function expression)
+const greet = function (name) {
+ return `Hello, ${name}`;
+};
+Оголошення функції (function declaration)
+function greet(name) {
+ return `Hello, ${name}!`;
+}
+Для того, щоб щось повернути з функції/методу або умови, можна використовувати оператор return. Також з функції можна повертати відразу будь-який тип даних, наприклад return 'hello' // (повернемо рядок) чи return true // (повернемо буль) чи return [1, 2] // (повернемо масив)
+Паттерн раннє повернення, говорить про те, що якщо умова всередині нашего if повертає true, то нам одразу же треба щось повернути із тіла цієї умови, з допомогою return.
+Не забувайте, що оператор = це оператор присвоєння, а не порівняння.
+Декілька лайфхаків при роботі з масивами.
+Як швидко очистити масив
+const fruits = ['banana', 'apple', 'orange', 'watermelon', 'apple', 'orange', 'grape', 'apple'];
+fruits.length = 0;
+console.log(fruits); // поверне []
+Як об'єднати більше двох масивів
+const fruits = ['apple', 'banana', 'orange'];
+const meat = ['poultry', 'beef', 'fish'];
+const vegetables = ['potato', 'tomato', 'cucumber'];
+const food = [...fruits, ...meat, ...vegetables];
+console.log(food); // поверне ["apple", "banana", "orange", "poultry", "beef", "fish", "potato", "tomato", "cucumber"]
+Як отримати рандомне значення масиву
+const fruits = [ 'banana', 'apple', 'orange', 'watermelon', 'apple', 'orange', 'grape', 'apple', ];
+const randomFruit = fruits[Math.floor(Math.random() * fruits.length)];
+console.log(randomFruit); // поверне рандомний фрукт із масиву
+
+
+
+
+
+4 module
+
+Четвертий модуль нашого шляху у JS не змусив довго чекати:relaxed:
+Об‘єкти в js - це одна з найголовніших і важливіших тем, які обов‘язково потрібно засвоїти та зрозуміти, тому що без них ніяк :man-shrugging:
+Розберіться з тим, що таке поля об‘єкта, значення, ключі та методи.
+При роботі з об‘єктами обов‘язково потрібно пам‘ятати - отримати доступ до значення можна, використовуючи звернення через крапку до ключа або використовувати квадратні дужки, наприклад є об’єкт const obj = {name: "John"}, щоб отримати "John" ми можемо використовувати такий запис obj.name - (отримаємо "John") або obj['name'] (отримаємо "John").
+Найчастіше використовуються квадратні дужки при зверненні до ключа, коли дані до нас приходять динамічно і ми заздалегідь не можемо знати ім‘я самого ключа. Ось один з прикладів такого використання:
+const user = {
+  name: "John",
+  age: 20,
+  hobby: "tenis",
+};
+const userKeys = Object.keys(user);
+for (const key of userKeys) {
+   console.log(user[key]);
+ }
+Можна отримати масив ключів об’єкта за допомогою Object.keys(obj) або можемо отримати масив значень за допомогою Object.values(obj).
+Також можна отримати ключ зі значенням за допомогою Object.entries(obj), результатом цієї операції буде масив масивів, на прикладі вищезгаданого obj, результат буде [['name', 'John']].
+Перебирати об‘єкт можна за допомогою циклу for in, синтаксис такий самий як і for of. Розберіться з його використанням.
+Так само потрібно розуміти, що таке конструктор об’єкта і для чого потрібен оператор new.
+Буде лише плюсом, якщо вивчили дод. матеріали самостійно (крім конспекту).
+Не соромимося повертатися до тем, у яких не вдалося розібратися відразу – це нормально, коли з першого разу інформація “не зайшла“.
+:drawing_pin:Прикріплені посилання на додаткові матеріали для вивчення:
+Робота з об‘єктами
+Цикл перебору об‘єкту for in
+Конструктор об’єкту
+Оператор new
+Всім продуктивного тижня :rocket:
+MDN Web DocsMDN Web Docs
+Working with objects - JavaScript | MDN
+JavaScript is designed on a simple object-based paradigm. An object is a collection of properties, and a property is an association between a name (or key) and a value. A property's value can be a function, in which case the property is known as a method. (24 kB)
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
+
+MDN Web DocsMDN Web Docs
+for...in - JavaScript | MDN
+The for...in statement iterates over all enumerable string properties of an object (ignoring properties keyed by symbols), including inherited enumerable properties. (24 kB)
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
+
+MDN Web DocsMDN Web Docs
+Object.prototype.constructor - JavaScript | MDN
+The constructor data property of an Object instance returns a reference to the constructor function that created the instance object. Note that the value of this property is a reference to the function itself, not a string containing the function's name. (24 kB)
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor
+
+MDN Web DocsMDN Web Docs
+new - JavaScript | MDN
+The new operator lets developers create an instance of a user-defined object type or of one of the built-in object types that has a constructor function. (24 kB)
+
+
+
+
 # Logs
+
 logs
 *.log
 npm-debug.log*
